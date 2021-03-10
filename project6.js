@@ -1,15 +1,37 @@
-
+//Variables ......
 const qwerty = document.getElementById('qwerty');
-
 const phrase = document.getElementById('phrase');
 
-const buttonReset = document.querySelector('btn__reset');
+const buttonReset = document.querySelector('.btn__reset');
+const overlay = document.getElementById('overlay');
 
 let missedGuesses = 0;
+
+// Phrases Array ......
+
 const phrases = [
-  "w h e n n o t h i n g i s g o i n g r i g h t g o l e f t ",
-  "d o n t l o o k b a c k y o u a r e n o t g o i n g t h a t w a y ",
-  "l o v e c o n q u e r s a l l ",
-  "b e l i e v e y o u c a n a n d y o u a r e h a l f w a y t h e r e ",
-  "i l i c k e d i t s o i t s m i n e "
+  "when nothing is going right go left",
+  "dont look back youre not going that way",
+  "love conquers all",
+  "better late than never",
+  "i licked it so its mine"
 ];
+
+ //Button funcion .....
+
+ buttonReset.addEventListener("click", () => {
+  overlay.style.display = "none";
+});
+
+//Function for selecting a random phrase from the array...
+function getRandomPhraseAsArray(arr) {
+  let randomNum = Math.floor(Math.random() * arr.length);     //Create random number between index...
+  const randomPhrase = arr[randomNum];                 //Asign random number to function parameter...
+  const chars = randomPhrase.split('');                       //Split phrase to letters.
+  return chars;                                                //return letters of the phrase.
+}
+
+//Splitting the strings into letters.....
+const chars = str.split('');
+console.log(chars[i]);
+// expected output: "letter"
