@@ -28,7 +28,7 @@ function getRandomPhraseAsArray(arr) {
   let randomNum = Math.floor(Math.random() * arr.length);     //Create random number between index...
   const randomPhrase = arr[randomNum];                 //Asign random number to function parameter...
   const chars = randomPhrase.split('');                       //Split phrase to letters.
-  return randomPhrase;                                                //return letters of the phrase.
+  return chars;                                                //return letters of the phrase.
 }
 
 
