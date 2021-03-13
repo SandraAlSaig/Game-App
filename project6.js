@@ -5,6 +5,8 @@ const phrase = document.getElementById('phrase');
 const buttonReset = document.querySelector('.btn__reset');
 const overlay = document.getElementById('overlay');
 
+let ul = document.querySelector('#phrase');
+
 let missedGuesses = 0;
 
 // Phrases Array ......
@@ -17,22 +19,32 @@ const phrases = [
   "i licked it so its mine"
 ];
 
- //Button funcion .....
-
+ //Button EventListener/funcion .....
  buttonReset.addEventListener("click", () => {
   overlay.style.display = "none";
 });
 
-//Function for selecting a random phrase from the array...
 function getRandomPhraseAsArray(arr) {
+  //Function for selecting a random phrase from the array...
   let randomNum = Math.floor(Math.random() * arr.length); //Create random number between index...
-  const randomPhrase = arr[randomNum];  //Asign random number to function parameter...
-  const phraseLetter = randomPhrase.split('');    //Split phrase to letters.
-  return phraseLetter;                    //return letters of the phrase.
+  return arr[randomNum];              //Return string of the phrase.
 }
 
+function addPhraseToDisplay(arr) {
+  for (let i = 0; i < arr.length; i += 1) {
+    const li = document.createElement('li');
 
-//Splitting the strings into letters.....
-// const chars = str.split('');
-// console.log(chars[i]);
-// expected output: "letter"
+    li.textContent = arr[i];
+
+    if (li.textContent !== "") {
+      li.className = "letter";
+    } else {
+      li.className = "space";
+    }
+    ul.appendChild(li);
+  }
+}
+
+const randomPhrase = getRandomPhraseAsArray(phrases).split("");
+addPhraseToDisplay(randomPhrase);
+//Call funcion to generate a phrase from array..
