@@ -4,10 +4,14 @@ const phrase = document.getElementById('phrase');
 
 const buttonReset = document.querySelector('.btn__reset');
 const overlay = document.getElementById('overlay');
+const ul = document.querySelector('ul');
 
-let ul = document.querySelector('#phrase');
+let missed = 0;
 
-let missedGuesses = 0;
+//Button EventListener/funcion .....
+buttonReset.addEventListener("click", () => {
+ overlay.style.display = "none";
+});
 
 // Phrases Array ......
 
@@ -19,32 +23,41 @@ const phrases = [
   "i licked it so its mine"
 ];
 
- //Button EventListener/funcion .....
- buttonReset.addEventListener("click", () => {
-  overlay.style.display = "none";
-});
-
-function getRandomPhraseAsArray(arr) {
   //Function for selecting a random phrase from the array...
-  let randomNum = Math.floor(Math.random() * arr.length); //Create random number between index...
-  return arr[randomNum];              //Return string of the phrase.
+function getRandomPhraseAsArray(arr) {
+  const randomPhrase = Math.floor(Math.random() * arr.length);
+  return arr[randomPhrase];
 }
 
+const gamePhrase = getRandomPhraseAsArray(phrases);
+
 function addPhraseToDisplay(arr) {
-  for (let i = 0; i < arr.length; i += 1) {
-    const li = document.createElement('li');
+  for (let i = 0; i < arr.length; i++) {
+    const li = document.createElement('LI');
+    const letter = document.createTextNode(`${arr[i]}`);
 
-    li.textContent = arr[i];
-
-    if (li.textContent !== "") {
-      li.className = "letter";
-    } else {
+    if (arr[i] === " ") {
       li.className = "space";
+    } else {
+      li.className = "letter";
     }
+    li.appendChild(letter);
     ul.appendChild(li);
   }
 }
 
-const randomPhrase = getRandomPhraseAsArray(phrases).split("");
-addPhraseToDisplay(randomPhrase);
+// const randomPhraseLetter = getRandomPhraseAsArray(phrases).split("");
+// addPhraseToDisplay(randomPhraseLetter);
 //Call funcion to generate a phrase from array..
+
+function checkLetter(button) {
+  let liElements = document.querySelectorAll('.class');
+  let match = 0;
+
+  for (let i =0; i < liElements.length; i++) {
+    if (checkLetter(button[i]).textContent === liElements[i].textContent) {
+      liElements.className = 'show';
+      match += 1;
+    }
+}
+}
