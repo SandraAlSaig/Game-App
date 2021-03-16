@@ -34,30 +34,16 @@ const gamePhrase = getRandomPhraseAsArray(phrases);
 function addPhraseToDisplay(arr) {
   for (let i = 0; i < arr.length; i++) {
     const li = document.createElement('LI');
-
+    const letter = document.createTextNode(`${arr[i]}`);
     if (arr[i] === " ") {
       li.className = "space";
     } else {
       li.className = "letter";
     }
-    const letter = document.createTextNode('arr[i]');
     li.appendChild(letter);
     ul.appendChild(li);
   }
 }
 
-// const randomPhraseLetter = getRandomPhraseAsArray(phrases).split("");
-// addPhraseToDisplay(randomPhraseLetter);
+addPhraseToDisplay(gamePhrase);
 //Call funcion to generate a phrase from array..
-//
-// function checkLetter(button) {
-//   let liElements = document.querySelectorAll('.class');
-//   let match = 0;
-//
-//   for (let i =0; i < liElements.length; i++) {
-//     if (button[i].textContent === liElements[i].textContent) {
-//       liElements.className = 'show';
-//       match += 1;
-//     }
-// }
-// }
