@@ -26,7 +26,7 @@ const phrases = [
   //Function for selecting a random phrase from the array...
 function getRandomPhraseAsArray(arr) {
   const randomPhrase = Math.floor(Math.random() * arr.length);
-  return arr[randomPhrase];
+  return getRandomPhraseAsArray(arr[randomPhrase]);
 }
 
 const gamePhrase = getRandomPhraseAsArray(phrases);
@@ -34,13 +34,13 @@ const gamePhrase = getRandomPhraseAsArray(phrases);
 function addPhraseToDisplay(arr) {
   for (let i = 0; i < arr.length; i++) {
     const li = document.createElement('LI');
-    const letter = document.createTextNode(`${arr[i]}`);
 
     if (arr[i] === " ") {
       li.className = "space";
     } else {
       li.className = "letter";
     }
+    const letter = document.createTextNode(`${arr[i]}`);
     li.appendChild(letter);
     ul.appendChild(li);
   }
@@ -55,7 +55,7 @@ function checkLetter(button) {
   let match = 0;
 
   for (let i =0; i < liElements.length; i++) {
-    if (checkLetter(button[i]).textContent === liElements[i].textContent) {
+    if (button[i].textContent === liElements[i].textContent) {
       liElements.className = 'show';
       match += 1;
     }
