@@ -26,7 +26,7 @@ const phrases = [
   //Function for selecting a random phrase from the array...
 function getRandomPhraseAsArray(arr) {
   const randomPhrase = arr[Math.floor(Math.random() * arr.length)];
-  return arr[randomPhrase];
+  return randomPhrase.split('');
 }
 
 const gamePhrase = getRandomPhraseAsArray(phrases);
