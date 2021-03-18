@@ -49,7 +49,7 @@ addPhraseToDisplay(gamePhrase);
 //Call funcion to generate a phrase from array..
 
 function checkLetter(button) {
-  let liElements = document.querySelectorAll('.class');
+  let  = document.querySelectorAll('.class');
   let match = 0;
 
   for (let i =0; i < liElements.length; i++) {
