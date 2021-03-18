@@ -55,7 +55,7 @@ function checkLetter(button) {
   for (let i =0; i < letterCheck.length; i++) {
     if (button.textContent.toLowerCase() === letterCheck[i].textContent.toLowerCase()) {
       letterCheck[i].classList.add('show');
-      match = checkLetter[i].textContent;
+      match = letterCheck[i].textContent;
     }
 }
 return match;
