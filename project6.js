@@ -1,32 +1,31 @@
 //Variables ......
 const qwerty = document.getElementById('qwerty');
-const phrase = document.getElementById('phrase');
+//const phrase = document.getElementById('phrase');
 
 const buttonReset = document.querySelector('.btn__reset');
 const overlay = document.getElementById('overlay');
-const ul = document.querySelector('ul');
-let scoreboard = document.querySelectorAll('#scoreboard');
-let lives = document.querySelectorAll('.tries');
+const ul = document.querySelector('#phrase ul');
+
+let lives = document.querySelectorAll('.tries img');
 let missed = 0;
 
 //Button EventListener/funcion .....
 buttonReset.addEventListener("click", () => {
-  if(buttonReset.textContent == 'Start Game') {
-    overlay.style.display = "none";
+  missed = 0;
+  let chosen = document.querySelectorAll('.chosen');
+  for (let i = 0; i < chosen.length; i++) {
+    chosen[i].removeAttribute('disabled');
+    chosen[i].classList.remove('chosen');
   }
-  if(buttonReset.textContent == 'Replay Game') {
-    overlay.style.display = "none";
-    let chosen = document.querySelectorAll('.chosen');
-    for( let i=0; i < chosen.length; i++) {
-            chosen[i].disabled = false;
-            chosen[i].classList.remove('chosen');
-
-        }
-  }
-  if(buttonReset.textContent == 'Try Again') {
-    overlay.style.display = "none";
-  }
-
+//MAking LiveHeart img reappear....
+  for (let i = 0; i < lives.length; i++) {
+    lives[i].src="images/liveHeart.png"
+}
+  ul.innerHTML = '';
+  const gamePhrase = getRandomPhraseAsArray(phrases);
+  addPhraseToDisplay(gamePhrase);
+  overlay.style.display = "none";
+});
 
 
 // Phrases Array ......
@@ -45,8 +44,6 @@ function getRandomPhraseAsArray(arr) {
   return randomPhrase.split('');
 }
 
-//Calling the getRandomPhraseAsArray function....
-const gamePhrase = getRandomPhraseAsArray(phrases);
 
 //Displaying the array onto the browser...
 function addPhraseToDisplay(arr) {
@@ -62,8 +59,6 @@ function addPhraseToDisplay(arr) {
     ul.appendChild(li);
   }
 }
-//Call funcion to generate a phrase from array onto the browser/display..
-addPhraseToDisplay(gamePhrase);
 
 //Check if chosen letter matches letters in the phrase...
 function checkLetter(button) {
@@ -87,7 +82,6 @@ qwerty.addEventListener('click', (event) => {
     if(pressedLetter ===  null) {
       lives[missed].src="images/lostHeart.png";
       missed++;
-      // scoreboard.parentNode.removeChild('li');
     }
     checkWin();
   }
@@ -110,4 +104,3 @@ function checkWin () {
       overlay.style.display = 'flex';
   }
 }
-})
