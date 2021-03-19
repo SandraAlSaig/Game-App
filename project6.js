@@ -1,10 +1,11 @@
 //Variables ......
 const qwerty = document.getElementById('qwerty');
-//const phrase = document.getElementById('phrase');
+// const phrase = document.getElementById('phrase');
 
 const buttonReset = document.querySelector('.btn__reset');
 const overlay = document.getElementById('overlay');
 const ul = document.querySelector('#phrase ul');
+const title = document.querySelector('.title');
 
 let lives = document.querySelectorAll('.tries img');
 let missed = 0;
@@ -59,6 +60,7 @@ function addPhraseToDisplay(arr) {
     ul.appendChild(li);
   }
 }
+// phrase.styles.transition = 'all 2s';
 
 //Check if chosen letter matches letters in the phrase...
 function checkLetter(button) {
@@ -68,6 +70,8 @@ function checkLetter(button) {
   for (let i =0; i < letterCheck.length; i++) {
     if (button.textContent.toLowerCase() === letterCheck[i].textContent.toLowerCase()) {
       letterCheck[i].classList.add('show');
+      letterCheck[i].style.backgroundColor = "#dbc8e8";
+      letterCheck[i].style.transition = '2s';
       match = letterCheck[i].textContent;
     }
 }
@@ -94,12 +98,14 @@ function checkWin () {
 
   if (letters.length === show.length) {
       overlay.className = 'win';
-      overlay.firstChild.textContent = 'You Won!';
+      overlay.firstChild.textContent = 'YOU WON!';
+      title.textContent = 'Congratulations!!!';
       overlay.style.display = 'flex';
       buttonReset.textContent = 'Replay Game';
   } else if (missed >= 5) {
       overlay.className = 'lose';
-      overlay.firstChild.textContent = 'You Lost!';
+      overlay.firstChild.textContent = 'YOU LOST!';
+      title.textContent = 'Sorry, maybe next time..'
       buttonReset.textContent = 'Try Again';
       overlay.style.display = 'flex';
   }
