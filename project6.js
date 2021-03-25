@@ -32,11 +32,29 @@ buttonReset.addEventListener("click", () => {
 // Phrases Array ......
 
 const phrases = [
-  "When nothing is going right go left",
-  "Dont look back youre not going that way",
-  "Love conquers all",
-  "Better late than never",
-  "I licked it so its mine"
+  "Naruto",
+  "Once Upon a Time in Hollywood",
+  "Back to the Future",
+  "Death Note",
+  "Who Framed Roger Rabbit",
+  "The Wolf of Wall Street",
+  "Joker",
+  "The Curious Case of Benjamin Button",
+  "Captain America The First Avenger",
+  "Ghost In The Shell",
+  "Tha Shawshank Redemption",
+  "Raiders of the Lost Ark",
+  "Big Hero 6",
+  "Kung Fu Panda",
+  "Justice League",
+  "Castlevania",
+  "Parks and Recreation",
+  "Big Mouth",
+  "The Boys",
+  "Peaky Blinders",
+  "The Witcher",
+  "Mindhunter",
+  "Breaking Bad"
 ];
 
   //Function for selecting a random phrase from the array and splitting it to letters...
@@ -98,14 +116,14 @@ function checkWin () {
 
   if (letters.length === show.length) {
       overlay.className = 'win';
-      overlay.firstChild.textContent = 'YOU WON!';
-      title.textContent = 'Congratulations!!!';
+      overlay.firstChild.textContent = 'WOHOOOO!!! YOU WON! AWESOME STUFF!!';
+      title.textContent = 'Congratulations!!! You are doing great! ';
       overlay.style.display = 'flex';
-      buttonReset.textContent = 'Replay Game';
+      buttonReset.textContent = 'Play Again????';
   } else if (missed >= 5) {
       overlay.className = 'lose';
-      overlay.firstChild.textContent = 'YOU LOST!';
-      title.textContent = 'Sorry, maybe next time..'
+      overlay.firstChild.textContent = 'YOU LOST Wap Wap Waaaap!';
+      title.textContent = "Aww.., I really thought you'd know this.. but maybe the next one .."
       buttonReset.textContent = 'Try Again';
       overlay.style.display = 'flex';
   }
