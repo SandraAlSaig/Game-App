@@ -44,7 +44,7 @@ const phrases = [
   "Ghost In The Shell",
   "Tha Shawshank Redemption",
   "Raiders of the Lost Ark",
-  "Big Hero 6",
+  "Big Hero Six",
   "Kung Fu Panda",
   "Justice League",
   "Castlevania",
